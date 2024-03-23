@@ -1,4 +1,4 @@
-package com.mydomain.minigames.lotek;
+package com.mydomain.minigames.lotek.util;
 
 import com.mydomain.minigames.lotek.view.MessageProvider;
 

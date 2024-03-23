@@ -1,4 +1,4 @@
-package com.mydomain.minigames.lotek;
+package com.mydomain.minigames.lotek.core;
 
 public interface Game {
     void startGame();

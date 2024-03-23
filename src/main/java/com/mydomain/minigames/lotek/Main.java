@@ -1,4 +1,12 @@
-package com.mydomain.minigames.game;
+package com.mydomain.minigames.lotek;
+
+import com.mydomain.minigames.lotek.controller.GameController;
+import com.mydomain.minigames.lotek.core.Game;
+import com.mydomain.minigames.lotek.model.NumberGenerator;
+import com.mydomain.minigames.lotek.model.ResultChecker;
+import com.mydomain.minigames.lotek.util.InputProcessor;
+import com.mydomain.minigames.lotek.util.InputValidator;
+import com.mydomain.minigames.lotek.util.NumbersSorter;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,6 +19,7 @@ public class Main {
         InputValidator inputValidator = new InputValidator();
         NumberGenerator numberGenerator = new NumberGenerator();
         ResultChecker resultChecker = new ResultChecker();
-        return new GameController(inputProcessor, inputValidator, numberGenerator, resultChecker);
+        NumbersSorter numbersSorter = new NumbersSorter();
+        return new GameController(inputProcessor, inputValidator, numberGenerator, resultChecker, numbersSorter);
     }
 }

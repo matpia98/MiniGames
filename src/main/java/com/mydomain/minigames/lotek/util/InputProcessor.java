@@ -1,5 +1,6 @@
-package com.mydomain.minigames.lotek;
+package com.mydomain.minigames.lotek.util;
 
+import com.mydomain.minigames.lotek.exception.NotANumberException;
 import com.mydomain.minigames.lotek.view.MessageProvider;
 
 import java.util.ArrayList;
@@ -16,9 +17,9 @@ public class InputProcessor {
                 int number = Integer.parseInt(stringNumber);
                 numbers.add(number);
             } catch (NumberFormatException e) {
-                throw new IllegalArgumentException(MessageProvider.INVALID_INPUT_FORMAT);
+                throw new NotANumberException(MessageProvider.formatMessage(MessageProvider.INVALID_NUMBER_FORMAT, stringNumber));
             }
         }
-        return numbers.stream().sorted().toList();
+        return numbers;
     }
 }

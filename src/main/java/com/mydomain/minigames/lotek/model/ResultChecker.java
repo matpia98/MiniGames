@@ -1,4 +1,4 @@
-package com.mydomain.minigames.lotek;
+package com.mydomain.minigames.lotek.model;
 
 import java.util.List;
 
