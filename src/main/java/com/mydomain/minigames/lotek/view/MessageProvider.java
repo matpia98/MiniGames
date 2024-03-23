@@ -11,7 +11,7 @@ public class MessageProvider {
     public static final String ENTER_NUMBERS_PROMPT = "Enter your numbers:";
     public static final String DRAWN_NUMBERS = "Drawn numbers: %s";
     public static final String HIT_NUMBERS = "You hit %d numbers. Your numbers: %s, drawn numbers: %s";
-    public static final String USER_WINS = "Congratulations! Yow won!";
+    public static final String USER_WINS = "Congratulations! You won!";
     public static final String INVALID_NUMBER_FORMAT = "%s is not a valid number.";
 
     public static String formatMessage(String template, Object... args) {

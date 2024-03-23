@@ -8,6 +8,8 @@ import com.mydomain.minigames.lotek.util.InputProcessor;
 import com.mydomain.minigames.lotek.util.InputValidator;
 import com.mydomain.minigames.lotek.util.NumbersSorter;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Game game = createGame();
@@ -20,6 +22,7 @@ public class Main {
         NumberGenerator numberGenerator = new NumberGenerator();
         ResultChecker resultChecker = new ResultChecker();
         NumbersSorter numbersSorter = new NumbersSorter();
-        return new GameController(inputProcessor, inputValidator, numberGenerator, resultChecker, numbersSorter);
+        Scanner scanner = new Scanner(System.in);
+        return new GameController(inputProcessor, inputValidator, numberGenerator, resultChecker, numbersSorter, scanner);
     }
 }

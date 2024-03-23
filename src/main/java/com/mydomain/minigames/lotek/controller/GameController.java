@@ -21,7 +21,7 @@ public class GameController implements Game {
     private final NumberGenerator numberGenerator;
     private final ResultChecker resultChecker;
     private final NumbersSorter numbersSorter;
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
 
 
     @Override
@@ -39,7 +39,7 @@ public class GameController implements Game {
             System.out.println(MessageProvider.formatMessage(MessageProvider.DRAWN_NUMBERS, drawnNumbers));
 
             int hits = resultChecker.checkResults(userNumbers, drawnNumbers);
-            System.out.println(MessageProvider.formatMessage(MessageProvider.HIT_NUMBERS, hits, userNumbers, drawnNumbers));
+            System.out.println(resultMessage(hits, userNumbers, drawnNumbers));
             if (hits == 6) {
                 System.out.println(MessageProvider.USER_WINS);
             }
@@ -48,5 +48,9 @@ public class GameController implements Game {
             System.out.println(e.getMessage());
             System.exit(1);
         }
+    }
+
+    String resultMessage(int hits, List<Integer> userNumbers, List<Integer> drawnNumbers) {
+        return MessageProvider.formatMessage(MessageProvider.HIT_NUMBERS, hits, userNumbers, drawnNumbers);
     }
 }
