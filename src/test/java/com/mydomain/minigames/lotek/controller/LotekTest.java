@@ -8,9 +8,7 @@ import com.mydomain.minigames.lotek.model.ResultChecker;
 import com.mydomain.minigames.lotek.util.InputProcessor;
 import com.mydomain.minigames.lotek.util.InputValidator;
 import com.mydomain.minigames.lotek.util.NumbersSorter;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -21,7 +19,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-class GameControllerTest {
+class LotekTest {
 
     @Mock
     private InputProcessor inputProcessor;
@@ -36,12 +34,12 @@ class GameControllerTest {
     @Mock
     private Scanner scanner;
 
-    private GameController gameController;
+    private Lotek lotek;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        gameController = new GameController(inputProcessor, inputValidator, numberGenerator, resultChecker, numbersSorter, scanner);
+        lotek = new Lotek(inputProcessor, inputValidator, numberGenerator, resultChecker, numbersSorter, scanner);
     }
 
     private static Stream<Arguments> provideNumbersAndMessages() {
@@ -74,7 +72,7 @@ class GameControllerTest {
         when(resultChecker.checkResults(userNumbers, drawnNumbers)).thenReturn(hits);
 
         // when
-        String providedMessage = gameController.resultMessage(hits, userNumbers, drawnNumbers);
+        String providedMessage = lotek.resultMessage(hits, userNumbers, drawnNumbers);
 
         // then
         assertThat(providedMessage)

@@ -1,6 +1,6 @@
 package com.mydomain.minigames.lotek;
 
-import com.mydomain.minigames.lotek.controller.GameController;
+import com.mydomain.minigames.lotek.controller.Lotek;
 import com.mydomain.minigames.lotek.core.Game;
 import com.mydomain.minigames.lotek.model.NumberGenerator;
 import com.mydomain.minigames.lotek.model.ResultChecker;
@@ -23,6 +23,6 @@ public class Main {
         ResultChecker resultChecker = new ResultChecker();
         NumbersSorter numbersSorter = new NumbersSorter();
         Scanner scanner = new Scanner(System.in);
-        return new GameController(inputProcessor, inputValidator, numberGenerator, resultChecker, numbersSorter, scanner);
+        return new Lotek(inputProcessor, inputValidator, numberGenerator, resultChecker, numbersSorter, scanner);
     }
 }

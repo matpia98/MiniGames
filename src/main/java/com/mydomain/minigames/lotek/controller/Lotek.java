@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Scanner;
 
 @AllArgsConstructor
-public class GameController implements Game {
+public class Lotek implements Game {
 
     private final InputProcessor inputProcessor;
     private final InputValidator inputValidator;
