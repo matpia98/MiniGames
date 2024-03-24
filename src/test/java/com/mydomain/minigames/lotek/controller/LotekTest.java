@@ -3,14 +3,11 @@ package com.mydomain.minigames.lotek.controller;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-import com.mydomain.minigames.lotek.model.NumberGenerator;
-import com.mydomain.minigames.lotek.model.ResultChecker;
+import com.mydomain.minigames.lotek.util.NumberGenerator;
 import com.mydomain.minigames.lotek.util.InputProcessor;
 import com.mydomain.minigames.lotek.util.InputValidator;
-import com.mydomain.minigames.lotek.util.NumbersSorter;
-import org.assertj.core.api.Assertions;
+import com.mydomain.minigames.lotek.util.NumberUtils;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -21,7 +18,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-class GameControllerTest {
+class LotekTest {
 
     @Mock
     private InputProcessor inputProcessor;
@@ -30,18 +27,16 @@ class GameControllerTest {
     @Mock
     private NumberGenerator numberGenerator;
     @Mock
-    private ResultChecker resultChecker;
-    @Mock
-    private NumbersSorter numbersSorter;
+    private NumberUtils numberUtils;
     @Mock
     private Scanner scanner;
 
-    private GameController gameController;
+    private Lotek lotek;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        gameController = new GameController(inputProcessor, inputValidator, numberGenerator, resultChecker, numbersSorter, scanner);
+        lotek = new Lotek(inputProcessor, inputValidator, numberGenerator, numberUtils, scanner);
     }
 
     private static Stream<Arguments> provideNumbersAndMessages() {
@@ -69,12 +64,12 @@ class GameControllerTest {
 
         when(scanner.nextLine()).thenReturn(inputLine);
         when(inputProcessor.convertToNumbers(inputLine)).thenReturn(userNumbers);
-        when(numbersSorter.sortNumbers(userNumbers)).thenReturn(userNumbers);
+        when(numberUtils.sortNumbers(userNumbers)).thenReturn(userNumbers);
         when(numberGenerator.generateNumbers()).thenReturn(drawnNumbers);
-        when(resultChecker.checkResults(userNumbers, drawnNumbers)).thenReturn(hits);
+        when(numberUtils.countMatches(userNumbers, drawnNumbers)).thenReturn(hits);
 
         // when
-        String providedMessage = gameController.resultMessage(hits, userNumbers, drawnNumbers);
+        String providedMessage = lotek.resultMessage(hits, userNumbers, drawnNumbers);
 
         // then
         assertThat(providedMessage)

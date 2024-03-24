@@ -1,12 +1,11 @@
 package com.mydomain.minigames.lotek;
 
-import com.mydomain.minigames.lotek.controller.GameController;
+import com.mydomain.minigames.lotek.controller.Lotek;
 import com.mydomain.minigames.lotek.core.Game;
-import com.mydomain.minigames.lotek.model.NumberGenerator;
-import com.mydomain.minigames.lotek.model.ResultChecker;
+import com.mydomain.minigames.lotek.util.NumberGenerator;
 import com.mydomain.minigames.lotek.util.InputProcessor;
 import com.mydomain.minigames.lotek.util.InputValidator;
-import com.mydomain.minigames.lotek.util.NumbersSorter;
+import com.mydomain.minigames.lotek.util.NumberUtils;
 
 import java.util.Scanner;
 
@@ -20,9 +19,8 @@ public class Main {
         InputProcessor inputProcessor = new InputProcessor();
         InputValidator inputValidator = new InputValidator();
         NumberGenerator numberGenerator = new NumberGenerator();
-        ResultChecker resultChecker = new ResultChecker();
-        NumbersSorter numbersSorter = new NumbersSorter();
+        NumberUtils numberUtils = new NumberUtils();
         Scanner scanner = new Scanner(System.in);
-        return new GameController(inputProcessor, inputValidator, numberGenerator, resultChecker, numbersSorter, scanner);
+        return new Lotek(inputProcessor, inputValidator, numberGenerator, numberUtils, scanner);
     }
 }
