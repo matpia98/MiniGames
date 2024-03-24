@@ -7,7 +7,7 @@ import com.mydomain.minigames.lotek.model.NumberGenerator;
 import com.mydomain.minigames.lotek.model.ResultChecker;
 import com.mydomain.minigames.lotek.util.InputProcessor;
 import com.mydomain.minigames.lotek.util.InputValidator;
-import com.mydomain.minigames.lotek.util.NumbersSorter;
+import com.mydomain.minigames.lotek.util.NumberUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -30,7 +30,7 @@ class LotekTest {
     @Mock
     private ResultChecker resultChecker;
     @Mock
-    private NumbersSorter numbersSorter;
+    private NumberUtils numberUtils;
     @Mock
     private Scanner scanner;
 
@@ -39,7 +39,7 @@ class LotekTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        lotek = new Lotek(inputProcessor, inputValidator, numberGenerator, resultChecker, numbersSorter, scanner);
+        lotek = new Lotek(inputProcessor, inputValidator, numberGenerator, resultChecker, numberUtils, scanner);
     }
 
     private static Stream<Arguments> provideNumbersAndMessages() {
@@ -67,7 +67,7 @@ class LotekTest {
 
         when(scanner.nextLine()).thenReturn(inputLine);
         when(inputProcessor.convertToNumbers(inputLine)).thenReturn(userNumbers);
-        when(numbersSorter.sortNumbers(userNumbers)).thenReturn(userNumbers);
+        when(numberUtils.sortNumbers(userNumbers)).thenReturn(userNumbers);
         when(numberGenerator.generateNumbers()).thenReturn(drawnNumbers);
         when(resultChecker.countMatches(userNumbers, drawnNumbers)).thenReturn(hits);
 

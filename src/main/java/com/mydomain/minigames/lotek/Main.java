@@ -6,7 +6,7 @@ import com.mydomain.minigames.lotek.model.NumberGenerator;
 import com.mydomain.minigames.lotek.model.ResultChecker;
 import com.mydomain.minigames.lotek.util.InputProcessor;
 import com.mydomain.minigames.lotek.util.InputValidator;
-import com.mydomain.minigames.lotek.util.NumbersSorter;
+import com.mydomain.minigames.lotek.util.NumberUtils;
 
 import java.util.Scanner;
 
@@ -21,8 +21,8 @@ public class Main {
         InputValidator inputValidator = new InputValidator();
         NumberGenerator numberGenerator = new NumberGenerator();
         ResultChecker resultChecker = new ResultChecker();
-        NumbersSorter numbersSorter = new NumbersSorter();
+        NumberUtils numberUtils = new NumberUtils();
         Scanner scanner = new Scanner(System.in);
-        return new Lotek(inputProcessor, inputValidator, numberGenerator, resultChecker, numbersSorter, scanner);
+        return new Lotek(inputProcessor, inputValidator, numberGenerator, resultChecker, numberUtils, scanner);
     }
 }

@@ -5,7 +5,7 @@ import com.mydomain.minigames.lotek.model.NumberGenerator;
 import com.mydomain.minigames.lotek.model.ResultChecker;
 import com.mydomain.minigames.lotek.util.InputProcessor;
 import com.mydomain.minigames.lotek.util.InputValidator;
-import com.mydomain.minigames.lotek.util.NumbersSorter;
+import com.mydomain.minigames.lotek.util.NumberUtils;
 import com.mydomain.minigames.lotek.view.MessageProvider;
 import lombok.AllArgsConstructor;
 
@@ -20,7 +20,7 @@ public class Lotek implements Game {
     private final InputValidator inputValidator;
     private final NumberGenerator numberGenerator;
     private final ResultChecker resultChecker;
-    private final NumbersSorter numbersSorter;
+    private final NumberUtils numberUtils;
     private final Scanner scanner;
 
 
@@ -33,7 +33,7 @@ public class Lotek implements Game {
 
             List<Integer> userNumbers = inputProcessor.convertToNumbers(inputLine);
             inputValidator.validateNumbers(userNumbers);
-            userNumbers = numbersSorter.sortNumbers(userNumbers);
+            userNumbers = numberUtils.sortNumbers(userNumbers);
 
             List<Integer> drawnNumbers = numberGenerator.generateNumbers();
             System.out.println(MessageProvider.formatMessage(MessageProvider.DRAWN_NUMBERS, drawnNumbers));
