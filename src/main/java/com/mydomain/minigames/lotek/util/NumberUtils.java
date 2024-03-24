@@ -9,4 +9,14 @@ public class NumberUtils {
                 .sorted()
                 .collect(Collectors.toList());
     }
+
+    public int countMatches(List<Integer> userNumbers, List<Integer> drawnNumbers) {
+        int hits = 0;
+        for (Integer number : userNumbers) {
+            if (drawnNumbers.contains(number)) {
+                hits++;
+            }
+        }
+        return hits;
+    }
 }

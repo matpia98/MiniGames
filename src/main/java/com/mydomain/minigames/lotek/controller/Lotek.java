@@ -2,7 +2,6 @@ package com.mydomain.minigames.lotek.controller;
 
 import com.mydomain.minigames.lotek.core.Game;
 import com.mydomain.minigames.lotek.model.NumberGenerator;
-import com.mydomain.minigames.lotek.model.ResultChecker;
 import com.mydomain.minigames.lotek.util.InputProcessor;
 import com.mydomain.minigames.lotek.util.InputValidator;
 import com.mydomain.minigames.lotek.util.NumberUtils;
@@ -19,7 +18,6 @@ public class Lotek implements Game {
     private final InputProcessor inputProcessor;
     private final InputValidator inputValidator;
     private final NumberGenerator numberGenerator;
-    private final ResultChecker resultChecker;
     private final NumberUtils numberUtils;
     private final Scanner scanner;
 
@@ -38,7 +36,7 @@ public class Lotek implements Game {
             List<Integer> drawnNumbers = numberGenerator.generateNumbers();
             System.out.println(MessageProvider.formatMessage(MessageProvider.DRAWN_NUMBERS, drawnNumbers));
 
-            int hits = resultChecker.countMatches(userNumbers, drawnNumbers);
+            int hits = numberUtils.countMatches(userNumbers, drawnNumbers);
             System.out.println(resultMessage(hits, userNumbers, drawnNumbers));
             if (hits == 6) {
                 System.out.println(MessageProvider.USER_WINS);

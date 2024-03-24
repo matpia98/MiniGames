@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 import com.mydomain.minigames.lotek.model.NumberGenerator;
-import com.mydomain.minigames.lotek.model.ResultChecker;
 import com.mydomain.minigames.lotek.util.InputProcessor;
 import com.mydomain.minigames.lotek.util.InputValidator;
 import com.mydomain.minigames.lotek.util.NumberUtils;
@@ -28,8 +27,6 @@ class LotekTest {
     @Mock
     private NumberGenerator numberGenerator;
     @Mock
-    private ResultChecker resultChecker;
-    @Mock
     private NumberUtils numberUtils;
     @Mock
     private Scanner scanner;
@@ -39,7 +36,7 @@ class LotekTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        lotek = new Lotek(inputProcessor, inputValidator, numberGenerator, resultChecker, numberUtils, scanner);
+        lotek = new Lotek(inputProcessor, inputValidator, numberGenerator, numberUtils, scanner);
     }
 
     private static Stream<Arguments> provideNumbersAndMessages() {
@@ -69,7 +66,7 @@ class LotekTest {
         when(inputProcessor.convertToNumbers(inputLine)).thenReturn(userNumbers);
         when(numberUtils.sortNumbers(userNumbers)).thenReturn(userNumbers);
         when(numberGenerator.generateNumbers()).thenReturn(drawnNumbers);
-        when(resultChecker.countMatches(userNumbers, drawnNumbers)).thenReturn(hits);
+        when(numberUtils.countMatches(userNumbers, drawnNumbers)).thenReturn(hits);
 
         // when
         String providedMessage = lotek.resultMessage(hits, userNumbers, drawnNumbers);
