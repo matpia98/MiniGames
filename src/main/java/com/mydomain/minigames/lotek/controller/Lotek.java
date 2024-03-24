@@ -38,7 +38,7 @@ public class Lotek implements Game {
             List<Integer> drawnNumbers = numberGenerator.generateNumbers();
             System.out.println(MessageProvider.formatMessage(MessageProvider.DRAWN_NUMBERS, drawnNumbers));
 
-            int hits = resultChecker.checkResults(userNumbers, drawnNumbers);
+            int hits = resultChecker.countMatches(userNumbers, drawnNumbers);
             System.out.println(resultMessage(hits, userNumbers, drawnNumbers));
             if (hits == 6) {
                 System.out.println(MessageProvider.USER_WINS);

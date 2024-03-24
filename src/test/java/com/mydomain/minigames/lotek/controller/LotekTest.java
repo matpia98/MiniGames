@@ -69,7 +69,7 @@ class LotekTest {
         when(inputProcessor.convertToNumbers(inputLine)).thenReturn(userNumbers);
         when(numbersSorter.sortNumbers(userNumbers)).thenReturn(userNumbers);
         when(numberGenerator.generateNumbers()).thenReturn(drawnNumbers);
-        when(resultChecker.checkResults(userNumbers, drawnNumbers)).thenReturn(hits);
+        when(resultChecker.countMatches(userNumbers, drawnNumbers)).thenReturn(hits);
 
         // when
         String providedMessage = lotek.resultMessage(hits, userNumbers, drawnNumbers);

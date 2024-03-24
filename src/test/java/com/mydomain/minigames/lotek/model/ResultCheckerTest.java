@@ -14,7 +14,7 @@ public class ResultCheckerTest {
         List<Integer> drawnNumbers = List.of(2, 4, 6, 8, 10, 12);
 
         // when
-        int hits = resultChecker.checkResults(userNumbers, drawnNumbers);
+        int hits = resultChecker.countMatches(userNumbers, drawnNumbers);
 
         // then
         assertEquals(3, hits, "Should correctly calculate the number of hits.");
@@ -28,7 +28,7 @@ public class ResultCheckerTest {
         List<Integer> drawnNumbers = List.of(2, 4, 6, 8, 10, 12);
 
         // when
-        int hits = resultChecker.checkResults(userNumbers, drawnNumbers);
+        int hits = resultChecker.countMatches(userNumbers, drawnNumbers);
 
         // then
         assertEquals(0, hits, "Should return zero when there are no hits.");
@@ -42,7 +42,7 @@ public class ResultCheckerTest {
         List<Integer> drawnNumbers = List.of(2, 4, 6, 8, 10, 12);
 
         // when
-        int hits = resultChecker.checkResults(userNumbers, drawnNumbers);
+        int hits = resultChecker.countMatches(userNumbers, drawnNumbers);
 
         // then
         assertEquals(6, hits, "Should handle all hits correctly.");
@@ -56,7 +56,7 @@ public class ResultCheckerTest {
         List<Integer> drawnNumbers = List.of();
 
         // when
-        int hits = resultChecker.checkResults(userNumbers, drawnNumbers);
+        int hits = resultChecker.countMatches(userNumbers, drawnNumbers);
 
         // then
         assertEquals(0, hits, "Should return zero when both lists are empty.");
