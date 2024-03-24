@@ -2,7 +2,7 @@ package com.mydomain.minigames.lotek;
 
 import com.mydomain.minigames.lotek.controller.Lotek;
 import com.mydomain.minigames.lotek.core.Game;
-import com.mydomain.minigames.lotek.model.NumberGenerator;
+import com.mydomain.minigames.lotek.util.NumberGenerator;
 import com.mydomain.minigames.lotek.util.InputProcessor;
 import com.mydomain.minigames.lotek.util.InputValidator;
 import com.mydomain.minigames.lotek.util.NumberUtils;

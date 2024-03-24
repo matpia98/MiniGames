@@ -1,4 +1,4 @@
-package com.mydomain.minigames.lotek.model;
+package com.mydomain.minigames.lotek.util;
 
 import com.mydomain.minigames.lotek.util.NumberUtils;
 import org.junit.jupiter.api.Test;

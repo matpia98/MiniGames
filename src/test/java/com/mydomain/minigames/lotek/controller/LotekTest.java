@@ -3,7 +3,7 @@ package com.mydomain.minigames.lotek.controller;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-import com.mydomain.minigames.lotek.model.NumberGenerator;
+import com.mydomain.minigames.lotek.util.NumberGenerator;
 import com.mydomain.minigames.lotek.util.InputProcessor;
 import com.mydomain.minigames.lotek.util.InputValidator;
 import com.mydomain.minigames.lotek.util.NumberUtils;
